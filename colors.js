@@ -74,7 +74,7 @@ function loadImage1(request, response) {
   var loadImagen = request.params.loadImagen;
   var requestImagen = "";
   //var = "pic_trulli.jpg";
-  if (loadImagen == "image") {requestImagen = "<h2>HTML Image</h2> <img src="pic_trulli.jpg" alt="Go to NicolasSanin!" width="500" height="333" border="0">";}
+  if (loadImagen == "image") {requestImagen = "<h2>HTML Image</h2> <img src='pic_trulli.jpg' height='500' width='333'>";}
 
   response.writeHead(200, {"Content-Type": "text/html"});
   response.write(requestImagen);
@@ -88,12 +88,12 @@ console.log('Server is listening on port 8080');
 server.get('/check/color/:color', checkColor);
 server.get('/check/imageBackground/:imageBackground', changeBackground);
 
-server.get('/check/loadImagen/loadImagen:', loadImage1);
+server.get('/check/loadImagen/:loadImagen', loadImage1);
 
 
 //server.get('/check/change/:change', changeBackground);
 
-// ***** http://localhost:8080/check/color/blue to enter color value for checkColor function... why it doesnt show the text????
+// *** http://localhost:8080/check/color/blue to enter color value for checkColor function... why it doesnt show the text????
 
 //example code:  server.get('/check/name/:name', checkAge);
 //server.get('/rrrr/name/:name/age/:age', checkAge); // rrrr reminder check can be anything...
@@ -107,23 +107,9 @@ server.get('/check/loadImagen/loadImagen:', loadImage1);
   */
 
 
-/* failed atempt :(
-function changeBackground(request,response) {
-  var imageBackground = request.params.imageBackground;
-  var respondString = "";
-  if (changeBackground == "change") {responseString = "<h2>HTML Image</h2>
-  <img src="pic_trulli.jpg" alt="Trulli" width="500" height="333">"
- }
- response.writeHead(200, {"Content-Type": "text/html"});
- response.write(responseString);
- response.end();
-}
-*/
-
-
 /* example line from w schools to upload an html image.
 <h2>HTML Image</h2>
 <img src="pic_trulli.jpg" alt="Trulli" width="500" height="333">
 */
 
-// ***********  you put your input like this in the browser: (for the age input example) http://localhost:8080/check/name/daniel/age/12   daniel, You're not old //enough to drink. **********
+// *********  you put your input like this in the browser: (for the age input example) http://localhost:8080/check/name/daniel/age/12   daniel, You're not old //enough to drink. ********
